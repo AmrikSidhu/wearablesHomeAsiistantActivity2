@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -128,6 +129,21 @@ public class MainActivity extends AppCompatActivity {
         catch (ActivityNotFoundException e){
             Toast.makeText(this,"your device does not supporing this feature",Toast.LENGTH_LONG);
         }
+    }
+// recognizer Intent
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100){
+            if (resultCode == RESULT_OK && data != null){
+
+                ArrayList<String> speechResult = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+
+                this.txtCommand.setText(speechResult.get(0).toLowerCase());
+                this.commandVoice();
+            }
+        }
+
     }
 
 }
