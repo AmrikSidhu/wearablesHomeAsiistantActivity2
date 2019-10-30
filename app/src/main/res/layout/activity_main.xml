@@ -4,38 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/guide"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="tap to talk with your particle device"
+        android:background="@android:color/background_dark"
+        android:fontFamily="sans-serif"
+        android:text=" tap to talk with your particle device "
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagemike" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagemike"
+        app:layout_constraintVertical_bias="0.377" />
 
     <TextView
         android:id="@+id/txtCommandLine"
         android:layout_width="237dp"
         android:layout_height="102dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="casual"
         android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ImageView
         android:id="@+id/imagemike"
         android:layout_width="162dp"
         android:layout_height="179dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="52dp"
         android:onClick="btnMikeClicked"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCommandLine"
         app:srcCompat="@drawable/mike" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="monospace"
+        android:text="Activity2: Home Assistant"
+        android:textAlignment="center"
+        android:textColor="?attr/colorError"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtCommandLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
