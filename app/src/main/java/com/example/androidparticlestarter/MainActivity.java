@@ -1,12 +1,15 @@
 package com.example.androidparticlestarter;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -112,6 +115,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnMikeClicked(View view){
+
+        userNavigation();
+    }
+
+    public void userNavigation(){
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"say something to your Particle Device!");
+        try {
+            startActivityForResult(intent, 100);
+        }
+        catch (ActivityNotFoundException e){
+            Toast.makeText(this,"your device does not supporing this feature",Toast.LENGTH_LONG);
+        }
     }
 
 }
