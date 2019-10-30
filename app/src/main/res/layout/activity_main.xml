@@ -7,12 +7,35 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/guide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="tap to talk with your particle device"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagemike" />
+
+    <TextView
+        android:id="@+id/txtCommandLine"
+        android:layout_width="237dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="128dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imagemike"
+        android:layout_width="162dp"
+        android:layout_height="179dp"
+        android:layout_marginTop="148dp"
+        android:onClick="btnMikeClicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCommandLine"
+        app:srcCompat="@drawable/mike" />
 
 </android.support.constraint.ConstraintLayout>

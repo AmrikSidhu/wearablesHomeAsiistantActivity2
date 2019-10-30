@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.io.IOException;
 
@@ -27,11 +28,10 @@ public class MainActivity extends AppCompatActivity {
     // MARK: Particle device-specific info
     private final String DEVICE_ID = "2b0040000f47363333343437";
 
-    // MARK: Particle Publish / Subscribe variables
-    private long subscriptionId;
-
     // MARK: Particle device
     private ParticleDevice devicePhoton;
+
+    TextView txtCommand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
         // 2. Setup your device variable
         getDeviceFromCloud();
+
+        // Retrieving Text View
+        this.txtCommand =  findViewById(R.id.txtCommandLine);
 
     }
 
