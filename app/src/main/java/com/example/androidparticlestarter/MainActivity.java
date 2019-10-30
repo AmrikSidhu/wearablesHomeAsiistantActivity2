@@ -5,9 +5,12 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import io.particle.android.sdk.cloud.ParticleCloud;
 import io.particle.android.sdk.cloud.ParticleCloudSDK;
@@ -75,6 +78,40 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, exception.getBestMessage());
             }
         });
+    }
+// sending voice as string to cloud
+    public void commandVoice() {
+
+        Async.executeAsync(ParticleCloudSDK.getCloud(), new Async.ApiWork<ParticleCloud, Object>() {
+            @Override
+            public Object callApi(@NonNull ParticleCloud particleCloud) throws ParticleCloudException, IOException {
+
+                List<String> functionParameters = new ArrayList<String>();
+                functionParameters.add(txtCommand.getText().toString());
+                try {
+                    devicePhoton.callFunction("command", functionParameters);
+
+                } catch (ParticleDevice.FunctionDoesNotExistException e1) {
+                    e1.printStackTrace();
+                }
+
+                return -1;
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+                // put your success message here
+                Log.d(TAG, "you particle got it!");
+            }
+
+            @Override
+            public void onFailure(ParticleCloudException exception) {
+                Log.d(TAG, exception.getBestMessage());
+            }
+        });
+    }
+
+    public void btnMikeClicked(View view){
     }
 
 }
